@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SaludoController {
-    private static final String template = "Hello, %s!";
+    private static final String template = "Hola %s!";
     private final AtomicLong counter = new AtomicLong();
     
     @GetMapping("/saludo")
-	public Saludo greeting(@RequestParam(value = "nombre", defaultValue = "Mundo") String name) {
+	public Saludo greeting(@RequestParam(value = "nombre", defaultValue = "World") String name) {
 		return new Saludo(counter.incrementAndGet(), String.format(template, name));
 	}
 }
