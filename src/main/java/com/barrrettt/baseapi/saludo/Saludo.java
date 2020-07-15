@@ -1,4 +1,4 @@
-package com.barrrettt.baseapi.model;
+package com.barrrettt.baseapi.saludo;
 
 public class Saludo {
     private final long id;

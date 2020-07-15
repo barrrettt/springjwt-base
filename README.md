@@ -1,7 +1,19 @@
 # springjwt-base
 
 Base proyect for spring jwt api.
-Exe JAR or gradle bootrun and consume API: [http://localhost:8080/saludo?name=amigo](http://localhost:8080/saludo?name=amigo)
+Exe JAR or gradle bootrun and consume API:
+
+Authenticate:
+
+``` bash
+curl -i -H "Content-Type: application/json" -X POST -d '{ "username":: "abc123.."}' http://localhost:8080/authenticate
+```
+
+Get resources:
+
+``` bash
+curl -H "Authorization: Bearer xxx.yyy.zzz" http://localhost:8080/saludo
+```
 
 ## Reference Documentation
 

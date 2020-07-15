@@ -1,8 +1,6 @@
-package com.barrrettt.baseapi.controller;
+package com.barrrettt.baseapi.saludo;
 
 import java.util.concurrent.atomic.AtomicLong;
-
-import com.barrrettt.baseapi.model.Saludo;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
