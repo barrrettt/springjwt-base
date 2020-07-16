@@ -14,7 +14,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //abc123.. con https://bcrypt-generator.com/
-        return new User("pepe","$2y$12$b69LWwDuQ7kARZQy9Hfpne938ArU6WHsZau9CEFnaVGUqX1oz0VBa",new ArrayList<>());
+        return new User("admin","$2y$12$b69LWwDuQ7kARZQy9Hfpne938ArU6WHsZau9CEFnaVGUqX1oz0VBa",new ArrayList<>());
     }
     
 }
