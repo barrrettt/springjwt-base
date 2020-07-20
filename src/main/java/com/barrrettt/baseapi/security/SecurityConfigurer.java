@@ -25,7 +25,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService);
     }
-
+    
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -41,10 +41,17 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
         //sin csrf, sin estado de sesion, end point de auth accesible.
 		httpSecurity.csrf().disable()
-        .authorizeRequests().antMatchers("/authenticate").permitAll().
-                anyRequest().authenticated().and().
-                exceptionHandling().and().sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        .authorizeRequests()
+            .antMatchers("/authenticate").permitAll()
+            .antMatchers("/users/**").access("hasRole('ROLE_ADMIN')")
+            .antMatchers("/h2-console/**").permitAll()//solo activar para h2 console
+            .anyRequest().authenticated()
+
+        .and().exceptionHandling()
+        .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        
+        httpSecurity.headers().frameOptions().disable();//solo activar para h2-console
+
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 }

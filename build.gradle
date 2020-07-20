@@ -14,17 +14,20 @@ repositories {
 
 dependencies {
 	//web + security
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-  	implementation 'org.springframework.boot:spring-boot-starter-web'
-  	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+	//devtools
+  	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	
+	//tests
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
   	testImplementation 'org.springframework.security:spring-security-test'
 
 	//database
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
   	runtimeOnly 'com.h2database:h2'
 
 	//token jwt 
