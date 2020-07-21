@@ -5,14 +5,24 @@ public class UserModel {
     private long id;
     private String name;
     private String password;
-    private Boolean valid;
+    private Boolean active;
     private String roles;
 
-    public UserModel(long id, String name, String password, Boolean valid, String roles) {
+    public UserModel(){}
+
+    public UserModel(long id, String name, String password, Boolean active, String roles) {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.valid = valid;
+        this.active = active;
+        this.roles = roles;
+    }
+
+    public UserModel(String name, String password, String roles) {
+        this.id = -1;
+        this.name = name;
+        this.password = password;
+        this.active = true;
         this.roles = roles;
     }
 
@@ -40,12 +50,12 @@ public class UserModel {
         this.password = password;
     }
 
-    public Boolean getValid() {
-        return valid;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setValid(Boolean valid) {
-        this.valid = valid;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public String getRoles() {

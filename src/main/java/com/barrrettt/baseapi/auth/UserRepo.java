@@ -21,9 +21,6 @@ public class UserRepo {
             UserModel user = plantilla.queryForObject(
             "SELECT * FROM users WHERE id = ?",
             new Object[] {id},new UserMapper());
-
-
-
             return user;
         } catch (Exception e) {
             return null;
@@ -36,9 +33,7 @@ public class UserRepo {
             UserModel user = plantilla.queryForObject(
             "SELECT * FROM users WHERE username = ?",
             new Object[] {username},new UserMapper());
-
             return user;
-            
         } catch (Exception e) {
             return null;
         }
@@ -49,6 +44,28 @@ public class UserRepo {
         return plantilla.query("select * from users", new UserMapper());
     }
 
+    //add new
+    public Boolean createUser(UserModel newUser){
+        try {
+            plantilla.update(
+            "INSERT INTO users(username, password, active, roles) VALUES (?,?,?,?)",
+            new Object[] {newUser.getName(),newUser.getPassword(),newUser.getActive(),newUser.getRoles()});
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    //delete
+    public Boolean deleteUser(String username){
+        try {
+            int deletecount = plantilla.update("delete from users where username=?",new Object[] {username});
+            return (deletecount>0);
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
 
 //R->O Mapper
