@@ -6,7 +6,7 @@ Exe JAR or gradle bootrun and consume API:
 Authenticate:
 
 ``` bash
-curl -i -H "Content-Type: application/json" -X POST -d '{ "username":: "abc123.."}' http://localhost:8080/authenticate
+curl -i -H "Content-Type: application/json" -X POST -d '{ "username":"abc123.."}' http://localhost:8080/authenticate
 ```
 
 Get resources: (change "xxx.yyy.zzz" for token jwt)
@@ -20,19 +20,19 @@ curl -H "Authorization: Bearer xxx.yyy.zzz" http://localhost:8080/saludo
 New user:
 
 ``` bash
-curl -i -H "Content-Type: application/json" -H "Authorization: Bearer xxx.yyy.zzz" -X POST -d '{"name": "nuevo","password":"$2y$12$b69LWwDuQ7kARZQy9Hfpne938ArU6WHsZau9CEFnaVGUqX1oz0VBa","active":true,"roles":"ROLE_USER"}' http://localhost:8080/users
+curl -i -H "Content-Type: application/json" -H "Authorization: Bearer xxx.yyy.zzz" -X POST -d '{"name": "newuser","password":"$2y$12$b69LWwDuQ7kARZQy9Hfpne938ArU6WHsZau9CEFnaVGUqX1oz0VBa","active":true,"roles":"ROLE_USER"}' http://localhost:8080/users
 ```
 
 Delete user:
 
 ``` bash
-curl -i -H "Content-Type: application/json" -H "Authorization: Bearer xxx.yyy.zzz" -X DELETE  http://localhost:8080/users/nuevo
+curl -i -H "Content-Type: application/json" -H "Authorization: Bearer xxx.yyy.zzz" -X DELETE  http://localhost:8080/users/newuser
 ```
 
 Get one or all users:
 
 ``` bash
-curl -i -H "Content-Type: application/json" -H "Authorization: Bearer xxx.yyy.zzz" -X GET  http://localhost:8080/users/nuevo
+curl -i -H "Content-Type: application/json" -H "Authorization: Bearer xxx.yyy.zzz" -X GET  http://localhost:8080/users/newuser
 ```
 
 ``` bash
