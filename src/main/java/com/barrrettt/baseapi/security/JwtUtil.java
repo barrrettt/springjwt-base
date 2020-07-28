@@ -14,7 +14,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
     private String SECRET_KEY = "secret";
-    private int expiration = 1000 * 60 * 15; //15m
+    private int expiration = 30000; //1000 * 60 * 1; //1m
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
