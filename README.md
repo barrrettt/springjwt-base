@@ -6,7 +6,7 @@ Exe JAR or gradle bootrun and consume API:
 Authenticate:
 
 ``` bash
-curl -i -H "Content-Type: application/json" -X POST -d '{ "username":"abc123.."}' http://localhost:8080/authenticate
+curl -i -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"abc123.."}' http://localhost:8080/authenticate
 ```
 
 Get resources: (change "xxx.yyy.zzz" for token jwt)
